@@ -1,0 +1,20 @@
+<a class="group">
+    <a class="fixed z-90 bottom-2 right-2">
+        <img *ngIf="turnOnLizzy" src="assets/app-icons/lizzy-switch-on.svg"/>
+        <img *ngIf="!launchLizzy && !turnOnLizzy" src="assets/app-icons/lizzy-switch-off.svg"/>
+    </a>
+    <a class="fixed z-90 bottom-2 right-2 transition-all transform translate-x-8 opacity-0 group-hover:opacity-100 group-hover:translate-x-0">
+        <a class="group">
+            <a *ngIf="!launchLizzy && turnOnLizzy" (click)="onLizzyLaunch(true, true)">
+                <img src="assets/app-icons/lizzy-launch.svg"/>
+            </a>
+            <a *ngIf="turnOnLizzy && launchLizzy" (click)="onLizzyLaunch(false, false)">
+                <img src="assets/app-icons/lizzy-switch-turn-off.svg"/>
+            </a> 
+            <a *ngIf="!launchLizzy && !turnOnLizzy" (click)="onLizzyLaunch(false, true)">
+                <img src="assets/app-icons/lizzy-switch-turn-on.svg"/>
+            </a>
+        </a>
+    </a>
+</a>
+<app-text-editor *ngIf="turnOnLizzy && launchLizzy"></app-text-editor>
